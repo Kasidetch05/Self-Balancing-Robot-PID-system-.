@@ -2,7 +2,7 @@
 #include <I2Cdev.h>
 #include <MPU6050.h>
 
-MPU6050 mpu(0x68);
+MPU6050 mpu(0x68); // address of the MPU6050
 
 // Sensor offsets
 float ax_offset = 0, ay_offset = 0, az_offset = 0;
@@ -40,7 +40,7 @@ constexpr float deadZoneBackward = 8.0f; // Separate deadzone for leaning backwa
 constexpr int calibrationSamples = 500;
 
 // === IMPORTANT: TUNE THIS VALUE FIRST ===
-float pitch_trim_offset = 0.0f; // Set this to the value you found in Pitch values
+float pitch_trim_offset = 0.0f; // Set this to the value, found in Pitch values
 
 // Function declarations
 void calibrateSensors();
@@ -240,4 +240,5 @@ void setMotor2(int pwm, bool forward) {
   digitalWrite(IN4_B, forward ? LOW : HIGH);
   digitalWrite(IN3_B, forward ? HIGH : LOW);
   analogWrite(ENA_B, pwm);
+
 }
