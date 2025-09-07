@@ -1,12 +1,11 @@
-# Self-Balancing-Robot-PID-system-.
-First ever Self balancing Robot project.
+# First Self-Balancing-Robot-PID-system-.
 
-====================================================================================================================================================================================================================
+---
 Introduction.
 
 This repository contains the Arduino source code for a two-wheeled self-balancing robot. The robot uses an MPU-6050 Inertial Measurement Unit (IMU) to sense its orientation and a PID (Proportional-Integral-Derivative) controller to drive two DC motors, keeping the robot upright.
 
-====================================================================================================================================================================================================================
+---
 Hardware Needed:
 - Arduino Uno
 - MPU-6050 IMU Sensor
@@ -14,7 +13,9 @@ Hardware Needed:
 - 2x DC Geared Motors with Wheels
 - Robot Chassis
 - 2x 12V batteries
-====================================================================================================================================================================================================================
+
+---
+
 Wiring: 
 Arduino Pin	Connects to
 - A4 (SDA)	MPU-6050 SDA
@@ -28,7 +29,7 @@ Arduino Pin	Connects to
 - Connect 5V and GND from Arduino to the MPU-6050 and L298N
 - Power the L298N's motor input with the battery
 
-====================================================================================================================================================================================================================
+---
 
 Software Uses:
 - I2Cdev:                      It makes the connection easier to use by simplifying how data is sent and received.                  
@@ -37,7 +38,7 @@ Software Uses:
 
 - Wire.h:                      It creates the basic I2C communication link between the Arduino and the sensor.
 
-====================================================================================================================================================================================================================
+---
 
 Calibration and Tuning Process:
 Step 1: Find the Balance Angle (pitch_trim_offset)
@@ -47,14 +48,13 @@ Step 1: Find the Balance Angle (pitch_trim_offset)
 1.4 - Look at the Pitch, value being printed.
 1.5 - Set pitch_trim_offset in the code to the value and re-upload.
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---
 
 // === IMPORTANT: TUNE THIS VALUE FIRST ===
 float pitch_trim_offset = 0.0f; // Set this to the value that show in pitch found
 (To make the robot center)
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+---
 
 Step 2: Tune the PID Controller
 2.1 - Place the robot on the ground and gently hold it. Adjust the values in the code and re-upload until it balances on its own.
@@ -65,7 +65,7 @@ Step 2: Tune the PID Controller
 
 2.4 - Tune Ki (Integral): If the robot drifts slightly, add a very small Ki (e.g., 0.1 or 0.2), too much Ki will make it unstable.
 
-=====================================================================================================================================================================================================================
+---
 
 Key Control Variables:
 - Kp, Ki, Kd                           : The PID gains for tuning.
@@ -74,7 +74,7 @@ Key Control Variables:
 - deadZoneForward, deadZoneBackward    : Prevents motor jitter when balanced. Increase if motors hum.
 - motorA_correction, motorB_correction : Adjust if one motor is faster than the other.
 
-=====================================================================================================================================================================================================================
+---
 
 Important Code Notes and Tips:
 -  If the robot runs away instead of balancing, find the line float pitch = -pitch_gyro_angle in the readPitch() function and adjust the negative and positive sign to make the robot steady not leaning forward       and backward. This is because the sensor might be mounted differently.
@@ -85,7 +85,7 @@ Important Code Notes and Tips:
 
 -  To make the robot move, change the speedControlInput variable from 0.0. A positive value will make it lean and move forward; a negative value will make it move backward.
 
-====================================================================================================================================================================================================================
+---
 
 Extra Information: (Issue, Improvement)
 - Issue and Improvement (Code) :  The robot initially exhibited significant oscillations, which were eliminated by tuning the Kp, Ki, and Kd parameters of the PID controller to achieve stable self-balancing.
@@ -94,7 +94,6 @@ Extra Information: (Issue, Improvement)
 
 - Issue and Improvement (Fabric): The robot's all-metal construction resulted in excessive weight and a high center of gravity, which hindered its ability to self-balance. To improve stability, the upper portion                                    of the chassis was replaced with a lighter plastic material, effectively lowering the center of gravity.
 
-====================================================================================================================================================================================================================
-
+---
   
 
