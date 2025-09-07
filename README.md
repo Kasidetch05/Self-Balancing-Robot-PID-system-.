@@ -34,7 +34,7 @@ Arduino Pin	Connects to
 Software Uses:
 - I2Cdev:                      It makes the connection easier to use by simplifying how data is sent and received.                  
 
-- MPU6050 (by Jeff Rowberg):   It knows the specific "language" of the MPU-6050, turning complex commands into simple functions like mpu.getAcceleration().
+- MPU6050 (by Electronic Cats):   It knows the specific "language" of the MPU-6050, turning complex commands into simple functions like mpu.getAcceleration().
 
 - Wire.h:                      It creates the basic I2C communication link between the Arduino and the sensor.
 
