@@ -57,6 +57,7 @@ float pitch_trim_offset = 0.0f; // Set this to the value that show in pitch foun
 ---
 
 Step 2: Tune the PID Controller
+
 2.1 - Place the robot on the ground and gently hold it. Adjust the values in the code and re-upload until it balances on its own.
 
 2.2 - Tune Kp (Proportional): Set Ki and Kd to 0. Slowly increase Kp until the robot starts to react and oscillate quickly. A good Kp is usually just below the point of violent shaking.
