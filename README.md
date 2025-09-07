@@ -42,10 +42,15 @@ Software Uses:
 
 Calibration and Tuning Process:
 Step 1: Find the Balance Angle (pitch_trim_offset)
+
 1.1 - Upload the code.
+
 1.2 - Hold the robot perfectly upright so it's balanced.
+
 1.3 - Open the Serial Monitor at 115200 baud.
+
 1.4 - Look at the Pitch, value being printed.
+
 1.5 - Set pitch_trim_offset in the code to the value and re-upload.
 
 ---
